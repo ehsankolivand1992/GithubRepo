@@ -1,0 +1,57 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'dagger.hilt.android.plugin'
+    id 'androidx.navigation.safeargs.kotlin'
+    id 'kotlin-kapt'
+}
+android {
+    compileSdk 32
+
+    defaultConfig {
+        minSdk 21
+        targetSdk 32
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        viewBinding = true
+        buildConfig = true
+    }
+}
+
+dependencies {
+
+    implementation Libs.androidx.core
+    implementation Libs.androidx.appcompat
+    implementation Libs.androidx.material
+    implementation Libs.androidx.constraintlayout
+    implementation Libs.androidx.legacy_support
+    implementation Libs.androidx.fragment
+    testImplementation Libs.unit_test.junit
+    androidTestImplementation Libs.android_test.junit
+    androidTestImplementation Libs.android_test.espresso
+    androidTestImplementation Libs.android_test.arch
+
+
+    api Libs.coroutines.core
+    api Libs.coroutines.android
+
+    implementation Libs.hilt.android
+    kapt Libs.hilt.compiler
+}

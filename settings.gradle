@@ -1,0 +1,25 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+rootProject.name = "MultiModule App Github Repository"
+include ':app'
+include ':common'
+include ':features'
+include ':data'
+include ':data:local'
+include ':data:remote'
+include ':data:repository'
+include ':common:common_ui'
+include ':common:common'
+include ':data:model'

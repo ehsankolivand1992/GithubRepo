@@ -1,0 +1,80 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'dagger.hilt.android.plugin'
+    id 'androidx.navigation.safeargs.kotlin'
+    id 'kotlin-kapt'
+}
+
+android {
+    compileSdk 32
+
+    defaultConfig {
+        applicationId "com.ehsankolivand.multimoduleappgithubrepository"
+        minSdk 21
+        targetSdk 32
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        viewBinding = true
+        buildConfig = true
+    }
+}
+
+dependencies {
+
+
+    implementation Libs.androidx.core
+    implementation Libs.androidx.appcompat
+    implementation Libs.androidx.material
+    implementation Libs.androidx.constraintlayout
+    implementation Libs.androidx.legacy_support
+    implementation Libs.androidx.fragment
+    testImplementation Libs.unit_test.junit
+    androidTestImplementation Libs.android_test.junit
+    androidTestImplementation Libs.android_test.espresso
+    androidTestImplementation Libs.android_test.arch
+
+
+    implementation Libs.liveData.ktx
+
+
+    implementation Libs.navigation_component.navigation_fragment
+    implementation Libs.navigation_component.navigation_ui_ktx
+
+    implementation Libs.room.runtime
+
+    androidTestImplementation Libs.android_test.rules
+    androidTestImplementation Libs.android_test.espresso
+    kapt Libs.room.compiler
+    implementation Libs.room.ktx
+    androidTestImplementation Libs.room.testing
+
+    implementation Libs.lifecycle_components.extensions
+    implementation Libs.lifecycle_components.common
+    implementation Libs.lifecycle_components.viewmodel
+
+    api Libs.coroutines.core
+    api Libs.coroutines.android
+
+    implementation Libs.hilt.android
+    kapt Libs.hilt.compiler
+
+}
