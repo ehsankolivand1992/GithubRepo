@@ -20,6 +20,7 @@ versions.lifecycle_extensions="2.2.0"
 versions.lifecycle="2.4.1"
 versions.coroutines ="1.6.0"
 versions.hilt="2.40.5"
+versions.retrofitVersion = "2.9.0"
 
 libs.androidx = [
         "core"            : "androidx.core:core:$versions.ktx",
@@ -85,6 +86,11 @@ libs.classpaths = [
         "ktlint_gradle"  : "org.jlleitschuh.gradle:ktlint-gradle:10.2.1",
         "safeArgs_gradle": "androidx.navigation:navigation-safe-args-gradle-plugin:$versions.navigationVersion",
 
+]
+
+libs.retrofit = [
+        "main"         : "com.squareup.retrofit2:retrofit:$versions.retrofitVersion",
+        "converterGSON": "com.squareup.retrofit2:converter-gson:$versions.retrofitVersion",
 ]
 
 
